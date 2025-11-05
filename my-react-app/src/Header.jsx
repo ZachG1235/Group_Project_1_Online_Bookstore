@@ -21,7 +21,7 @@ function Header(props) {
         <div className="d-flex justify-content-around align-items-center">
             <Link to="/"><button className="btn btn-primary">HOME</button></Link>
             <h1 style={{color: "white"}}>
-                Welcome {props.user != null ? props.user["name"] : "to my blog web application"}!
+                Welcome {props.user != null ? props.user["name"] : "to my BOOK web application"}!
             </h1>
             {props.user == null ?
             (

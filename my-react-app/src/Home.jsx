@@ -1,21 +1,20 @@
 import { Link } from "react-router-dom"
 import { useEffect, useState } from 'react'
-import PostList from './PostList.jsx'
-import BlogPostForm from './BlogPostForm.jsx'
+import BookList from './BookList.jsx'
 
 function Home(props) {
-    const [blogs, setBlogs] = useState([])
+    const [books, setBooks] = useState([])
     useEffect(() => {
-    fetch("/api/blogs").then(
+    fetch("/api/books").then(
         response => response.json()).then(data => {
-        setBlogs(data.blogs)
+        setBooks(data.books)
     }
     )
     }, [])
     return (
         <div>
-            {props.user ? <BlogPostForm user={props.user} setBlogs={setBlogs}/> : null}
-            <PostList user={props.user} blogs={blogs} setBlogs={setBlogs}/>
+            {/* {props.user ? <BlogPostForm user={props.user} setBlogs={setBlogs}/> : null} */}
+            <BookList user={props.user} books={books} setBooks={setBooks}/>
         </div>
     )
 }

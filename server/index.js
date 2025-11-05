@@ -24,22 +24,24 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
-var blogs = [];
+var books = [];
 
-app.get("/api/blogs", async (req, res) => {
-    blogs = [];
-    const result = await db.query("SELECT * FROM blogs");
-    result.rows.forEach((blog) => {
-        blogs.push({
-        blogID: blog.blog_id,
-        bloggerName: blog.creator_name,
-        timeCreated: blog.date_created,
-        blogTitle: blog.title,
-        blogContent: blog.body,
-        bloggerID: blog.creator_user_id
+app.get("/api/books", async (req, res) => {
+    books = [];
+    const result = await db.query("SELECT * FROM books");
+    console.log(result);
+    result.rows.forEach((book) => {
+        books.push({
+        bookId: book.bookid,
+        bookTitle: book.title,
+        bookAuthor: book.author,
+        bookGenre: book.genre,
+        bookDesc: book.description,
+        bookPubDate: book.pubdate, 
+        bookRating: book.rating
         });
     });
-    res.json({ blogs: blogs});
+    res.json({ books : books});
 });
 
 app.get("/api/user", (req, res) => {
