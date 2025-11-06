@@ -64,3 +64,17 @@ img {
     margin-right: auto;
     margin-left: auto;
 }
+
+.btn-signin {
+    background-color: rgb(227, 227, 227);
+    border: 1px solid rgb(196, 196, 196);
+    color: rgb(59, 59, 59);
+}
+
+.custom-btn-height{
+    height: 45px; 
+}
+
+.custom-btn-width {
+  width: 75px;
+}

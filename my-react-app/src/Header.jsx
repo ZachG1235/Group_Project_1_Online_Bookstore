@@ -39,9 +39,10 @@ function Header(props) {
             </div>
             {props.user == null ?
             (
-            <div>
-                <a href="/signup"><button className="btn btn-primary">SIGN UP?</button></a>
-                <Link to="/signin"><button className="btn btn-primary">LOGIN?</button></Link>
+            <div className="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                <Link to="/signin"><button className="btn btn-signin custom-btn-width custom-btn-height">Sign in</button></Link>
+                <a href="/signup"><button className="btn btn-dark custom-btn-height">Register</button></a>
+                
             </div>
             ) : (
                 <button onClick={handleLogout} className="btn btn-primary">LOGOUT?</button>
