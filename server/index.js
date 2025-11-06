@@ -29,7 +29,6 @@ var books = [];
 app.get("/api/books", async (req, res) => {
     books = [];
     const result = await db.query("SELECT * FROM books");
-    console.log(result);
     result.rows.forEach((book) => {
         books.push({
         bookId: book.bookid,

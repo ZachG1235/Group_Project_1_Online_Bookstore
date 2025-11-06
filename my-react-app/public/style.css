@@ -12,7 +12,7 @@ h1 {
 }
 
 .formLabel {
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 img {
@@ -51,4 +51,16 @@ img {
 
 .navbar-margin-ovrr {
     margin: 10px 30px;
+}
+
+.cust-max-screen-width-1000 {
+    max-width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.cust-max-screen-width-600 {
+    max-width: 600px;
+    margin-right: auto;
+    margin-left: auto;
 }
