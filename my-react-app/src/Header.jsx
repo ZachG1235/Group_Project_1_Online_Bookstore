@@ -21,7 +21,7 @@ function Header(props) {
         // i took these out
         //  d-flex justify-content-around align-items-center
         <nav className="nav navbar-expand-lg navbar-light bg-light d-flex align-items-center justify-content-around navbar-margin-ovrr"> 
-            <h1><Link to="/" className="navbar-brand ">Bookithy</Link></h1>  
+            <h1 className="my-4"><Link to="/" className="navbar-brand ">Bookithy</Link></h1>  
             {/* <h1>
                 Welcome {props.user != null ? props.user["displayname"] : "to my BOOK web application"}!
             </h1> */}
@@ -39,7 +39,7 @@ function Header(props) {
             </div>
             {props.user == null ?
             (
-            <div className="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+            <div className="d-grid gap-2 d-md-flex justify-content-md-end my-2">
                 <Link to="/signin"><button className="btn btn-signin custom-btn-width custom-btn-height">Sign in</button></Link>
                 <a href="/signup"><button className="btn btn-dark custom-btn-height">Register</button></a>
                 
