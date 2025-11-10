@@ -24,6 +24,12 @@ CREATE TABLE Reviews (
     rating INT NOT NULL
 );
 
+INSERT INTO Users (username, displayName, password)
+VALUES
+('alice', 'Alice Smith', 'hashedpassword1'),
+('bob', 'Bob Johnson', 'hashedpassword2'),
+('carol', 'Carol Lee', 'hashedpassword3');
+
 INSERT INTO Books (title, author, genre, description, pubDate, rating)
 VALUES
 ('The Great Gatsby', 'F. Scott Fitzgerald', 'Classic',
@@ -45,3 +51,21 @@ VALUES
 ('Pride and Prejudice', 'Jane Austen', 'Romance',
  'A witty and romantic exploration of manners, marriage, and social standing in 19th-century England.',
  '1813-01-28', 4.5);
+
+ INSERT INTO Reviews (bookID, author, reviewText, reviewTitle, rating)
+VALUES
+-- Review for The Great Gatsby (bookID = 1)
+(1, 'alice', 'An amazing depiction of the Jazz Age. Loved the prose and the characters.', 'A Classic Gem', 5),
+
+-- Review for 1984 (bookID = 2)
+(2, 'bob', 'Terrifyingly realistic. Orwell predicted so much about surveillance society.', 'Chilling Dystopia', 5),
+
+-- Review for To Kill a Mockingbird (bookID = 3)
+(3, 'carol', 'A moving story that stays with you. Important and emotional.', 'Must-Read', 5),
+
+-- Review for The Hobbit (bookID = 4)
+(4, 'alice', 'Fun adventure with a charming protagonist. Tolkien’s world-building is superb.', 'Adventure Awaits', 4),
+
+-- Review for Pride and Prejudice (bookID = 5)
+(5, 'bob', 'Witty, romantic, and timeless. Austen’s writing never gets old.', 'Romantic Classic', 5);
+

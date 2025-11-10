@@ -50,6 +50,27 @@ app.get("/api/user", (req, res) => {
         res.json({ user: null });
     }
 });
+
+app.get("/api/book/:bookId", async (req, res) => {
+    let {bookId} = req.params;
+
+    // delete blog from database
+    const query = "SELECT * FROM books WHERE bookId = $1"
+    const result = await db.query(query, [Number(bookId)]);
+
+    res.json({ book: result.rows[0] });
+});
+
+app.get("/api/reviews/:bookId", async (req, res) => {
+    let {bookId} = req.params;
+
+    // delete blog from database
+    const query = "SELECT * FROM reviews WHERE bookId = $1"
+    const result = await db.query(query, [Number(bookId)]);
+
+    res.json({ reviews: result.rows });
+});
+
 //--------------------------------------------get
 // app.get("/", async (req, res) => {
 //     // get blogs from db

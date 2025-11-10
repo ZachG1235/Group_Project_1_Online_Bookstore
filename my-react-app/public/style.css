@@ -24,6 +24,10 @@ img {
     color: black;
 }
 
+.book {
+    text-decoration: none;
+}
+
 .star-rating{
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
     -webkit-text-stroke: 1px black;
@@ -77,4 +81,42 @@ img {
 
 .custom-btn-width {
   width: 75px;
+}
+
+.bookPage {
+    display:flex;
+    justify-content: flex-start;
+}
+
+.bookPage img {
+    max-width: 12%;
+    margin-left: 5%;
+    margin-right: 20px;
+}
+
+.bookPageRating {
+    display:flex;
+    margin-bottom: 1rem;
+}
+
+.reviewButtonDiv {
+    display:flex;
+    justify-content: flex-end;
+}
+
+.bookReviews {
+    display:flex;
+    flex-direction: column;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.review {
+    background-color: #d9d9d9;
+    margin-top: 25px;
+}
+
+.reviewRating {
+    display:flex;
+    margin-left: 2%;
 }

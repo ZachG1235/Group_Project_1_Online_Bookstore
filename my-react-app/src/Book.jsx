@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Routes, Route, Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
+import Rating from './Rating';
 
 function Book(props) {
   const navigate = useNavigate();
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
-  const starsArr = [1, 2, 3, 4, 5];
+  // const starsArr = [1, 2, 3, 4, 5];
 
   // const handleSubmit = async (event) => {
   //       event.preventDefault();
@@ -37,6 +38,7 @@ function Book(props) {
   if (props.book != null) {
     return (
       <div className="col">
+        <button className="book btn btn-link p-0 m-0" onClick={() => navigate(`/book/${props.book["bookId"]}`)}>
         <div className="book-card ">
           <img src="/book.jpg" className="card-img-top" alt="..." />
 
@@ -44,23 +46,12 @@ function Book(props) {
           <h5 className="card-title text-center">{props.book["bookTitle"]}</h5>
           <p className="card-text text-center">{props.book["bookAuthor"]}</p>
           <div className="star-rating">
-            {starsArr.map((star, index) => {
-              index += 1;
-              return (
-                <>
-                <div key={index} id={index} 
-                  className={index <= parseFloat(props.book["bookRating"]) ? ("on") : ("off")}>
-                  <span className="star">&#9733;</span> {/* Star unicode */}
-                </div>
-                
-                </>
-              );
-             })
-            }
-            <p className="rating-num">({props.book["bookRating"]})</p>
+          <Rating rating={props.book["bookRating"]}/>
+          <p className="rating-num">({props.book["bookRating"]})</p>
           </div>
         </div>
         </div>
+        </button>
       </div>
 
     )
