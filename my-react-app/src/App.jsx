@@ -6,6 +6,7 @@ import Signin from './Signin.jsx'
 import Signup from './Signup.jsx'
 import Edit from './Edit.jsx'
 import BookPage from './BookPage.jsx'
+import CreateReview from "./CreateReview.jsx"
 
 function App() {
   const [user, setUser] = useState([])
@@ -25,6 +26,7 @@ function App() {
         <Route path="/signin" element={<Signin setUser={setUser}/>}/>
         <Route path="/edit" element={<Edit/>}/>
         <Route path="/book/:bookId" element={<BookPage user={user}/>}/>
+        <Route path="/review/:bookId" element={<CreateReview user={user}/>}/>
       </Routes>
     </div>
   )

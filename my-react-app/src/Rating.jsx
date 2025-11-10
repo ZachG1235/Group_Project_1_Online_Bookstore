@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 
 function Rating(props) {
     const rating = props.rating;
+    console.log("rating", rating)
     const starsArr = [1, 2, 3, 4, 5];
     return (
         // <div className="star-rating">

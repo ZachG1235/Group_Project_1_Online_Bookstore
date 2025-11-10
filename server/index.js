@@ -71,6 +71,16 @@ app.get("/api/reviews/:bookId", async (req, res) => {
     res.json({ reviews: result.rows });
 });
 
+app.get("/api/author/:author", async (req, res) => {
+    let {author} = req.params;
+
+    // delete blog from database
+    const query = "SELECT displayname FROM users WHERE username = $1"
+    const result = await db.query(query, [author]);
+
+    res.json({ displayName: result.rows[0].displayname });
+});
+
 //--------------------------------------------get
 // app.get("/", async (req, res) => {
 //     // get blogs from db
@@ -187,14 +197,31 @@ app.post("/api/logout", async (req, res) => {
     res.json({ success: true });
 });
 
-app.post("/api/deleteBlog", async (req, res) => {
-    let {blogID} = req.body;
+app.post("/api/deleteReview", async (req, res) => {
+    let {reviewId} = req.body;
 
     // delete blog from database
-    const query = "DELETE FROM blogs WHERE blog_id = $1"
-    const result = await db.query(query, [Number(blogID)]);
+    const query = "DELETE FROM reviews WHERE reviewid = $1"
+    const result = await db.query(query, [Number(reviewId)]);
 
     res.json({ success: true });
+});
+
+app.post("/api/review", async (req, res) => {
+    // try to insert user into db
+    const query = "INSERT INTO reviews (bookID, author, reviewText, reviewTitle, rating) VALUES ($1, $2, $3, $4, $5)";
+
+    try {
+        const result = await db.query(query,
+                        [req.body.bookId, req.body.author, req.body.review, req.body.title, req.body.rating]);
+
+        // return success error
+        res.json({ success: true } );
+    }
+    catch (err) {
+        // return to sign up with invalidid error
+        res.json({ success: false } );
+    }
 });
 
 app.listen(port, () => {

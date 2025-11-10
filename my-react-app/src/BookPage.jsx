@@ -35,7 +35,7 @@ function BookPage(props) {
                 </>
                 )}
             </div>
-            {book && <BookReviews bookId={bookId} />}
+            {book && <BookReviews user={props.user} bookId={bookId} />}
         </div>
     )
 }
