@@ -20,7 +20,7 @@ function Header(props) {
     return (
         // i took these out
         //  d-flex justify-content-around align-items-center
-        <nav className="nav navbar-expand-lg navbar-light bg-light d-flex align-items-center justify-content-around navbar-margin-ovrr"> 
+        <nav className="nav navbar-expand-lg navbar-light bg-light d-flex align-items-center justify-content-around"> 
             <h1 className="my-4"><Link to="/" className="navbar-brand ">Bookithy</Link></h1>  
             {/* <h1>
                 Welcome {props.user != null ? props.user["displayname"] : "to my BOOK web application"}!
